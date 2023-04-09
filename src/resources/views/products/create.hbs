@@ -1,0 +1,79 @@
+<head>
+    <link rel="stylesheet" href="/css/auth.css">
+ </head>
+
+<nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <a class="navbar-blue" href="#">Admin</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      
+      <li class="nav-item">
+        <a class="nav-link " href="/products/create">Add-products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/me/stored/products">Manage-books</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/me/profile">Manage-users</a>
+      </li>
+    </ul>
+  </div>
+</nav> 
+
+<div class="mt-4">
+
+    <form class="form" method="POST" action="/products/store" id="form-2" enctype="multipart/form-data">
+    <h1>Thêm mới sách</h1>
+        <div class="form-group">
+      <label for="" class="form-label">Tên sách: </label>
+            <input type="text" class="form-control form-group"  id="name"  name="name">
+          <span class="form-message"></span>
+
+        </div>
+
+              <div class="form-group">
+          <label for="" class="form-label">Ảnh của sách: </label>
+            <input type="file" class=" form-group"  id="image" name="image">
+          <span class="form-message"></span>
+
+        </div>
+
+              <div class="form-group">
+      <label for="" class="form-label">Mô tả sách: </label>
+            <input type="text" class="form-control form-group"  id="desc" name="desc">
+      <span class="form-message"></span>
+            
+        </div>
+  
+  <button type="form-submit" class="btn btn-primary ml-auto">Thêm Sách</button>
+</form>
+
+
+</div>
+
+<script>
+
+      document.addEventListener('DOMContentLoaded', function () {
+        // Mong muốn của chúng ta
+      
+        Validator({
+          form: '#form-2',
+          formGroupSelector: '.form-group',
+          errorSelector: '.form-message',
+          rules: [
+            Validator.isRequired('#name', 'Vui lòng nhập tên của sách'),
+            Validator.isRequired('#image', 'Vui lòng tải ảnh của sách'),
+            Validator.isRequired('#desc', 'Vui lòng nhập mô tả của sách'),
+            
+          ],
+          {{!-- onSubmit: function (data) {
+            // Call API
+           console.log(data);  
+          } --}}
+        });
+      });
+
+    </script>

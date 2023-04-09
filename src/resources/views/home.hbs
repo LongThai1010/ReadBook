@@ -1,0 +1,83 @@
+<section class="content">
+            <div class="content__left">
+                <h2 class="content__left--h1">MyBook <span>Giúp tìm kiếm sách bạn yêu thích</span> </h2>
+                <p class="content__left--desc"> Ở Mybook bạn có thể xem miển phí các cuốn sách, đầy đủ thể loại sách cho bạn lựa chọn, mang đến cho bạn sự trải nghiệm thú vị mới.</p>
+                <button class="btn content__left--btn"> Xem ngay</button>
+            </div>
+
+            <div class="content__right">
+                <img class="content__right--image" src="/images/book.jpeg" alt="book-content">
+            </div>
+        </section>
+              
+
+<nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <h1 class="navbar-brand" href="#">Sách hay</h1>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+    <form action="/products/searchProduct/show" method="get" class="form-inline ml-auto my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>  
+  </div>
+</nav>
+
+        {{!-- <div class="col-sm-6 col-lg-3">
+            <div class="card card-food">
+                 <a href="/products/{{this.slug}}">
+            <img class="img-product" src="/images/{{this.image}}" alt="{{this.name}}">
+                 
+                </a>
+            <div class="card-body">
+                <a href="/products/{{this.slug}}">
+                 <h5 class="card-title">{{this.name}}</h5>   
+                </a>
+            <p class="card-text">{{this.price}}</p>
+            <a href="/products/{{this.slug}}" class="btn btn-primary">doc ngay day</a>
+             </div>
+            </div>
+        </div> --}}
+        <div class="album py-5 bg-light">
+   
+
+
+        <div class="container">
+
+          <div class="row">
+            {{#each products}}
+            <div class="col-md-4">
+                      
+              <div class="card mb-4 box-shadow">
+                <img class="img-product" src="/images/{{this.image}}" alt="{{this.name}}">
+                <div class="card-body">
+                  <p class="text-capitalize fw-bold p">{{this.name}}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="/products/{{this.slug}}" type="button" class="btn btn-md btn-primary">Read now</a>
+                    </div>
+                    <div class="ms-auto text-warning">
+                      <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                    
+            </div>
+           
+
+          
+           
+        {{/each}}   
+          </div>
+        </div>
+      </div>
+       
+   

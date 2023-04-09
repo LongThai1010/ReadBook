@@ -1,0 +1,59 @@
+<head>
+    <link rel="stylesheet" href="/css/auth.css">
+ </head>
+ 
+
+<div class="mt-4">
+    <h1>Cap nhap sach</h1>
+
+    <form method="POST" action="/products/{{product._id}}?_method=PUT" id="form-2" >
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control form-group" value="{{product.name}}" id="name"  name="name">
+          <span class="form-message"></span>
+
+        </div>
+
+              <div class="form-group">
+            <label for="image">Image</label>  
+            <input type="file" class="form-control form-group" value="/images/{{product.image}}" id="image" name="image">
+            <span class="form-message"></span>
+
+        </div>
+
+              <div class="form-group">
+            <label for="desc">Mo ta</label>
+            <textarea  class="form-control form-group"  id="desc" name="desc"> {{product.desc}} </textarea>
+           <span class="form-message"></span>
+            
+        </div>
+  
+  <button type="form-submit" class="btn btn-primary">luu lai</button>
+</form>
+
+
+</div>
+
+<script>
+
+      document.addEventListener('DOMContentLoaded', function () {
+        // Mong muốn của chúng ta
+      
+        Validator({
+          form: '#form-2',
+          formGroupSelector: '.form-group',
+          errorSelector: '.form-message',
+          rules: [
+            Validator.isRequired('#name', 'Vui lòng nhập tên đầy đủ của bạn'),
+            Validator.isRequired('#image', 'Vui lòng nhập tên đầy đủ của bạn'),
+            Validator.isRequired('#desc', 'Vui lòng nhập tên đầy đủ của bạn'),
+            
+          ],
+          {{!-- onSubmit: function (data) {
+            // Call API
+           console.log(data);  
+          } --}}
+        });
+      });
+
+    </script>

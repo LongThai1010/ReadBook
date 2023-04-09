@@ -1,0 +1,147 @@
+<div class="mt-4">
+    <div class="container">
+
+    <!-- Portfolio Item Heading -->
+   
+    <!-- Portfolio Item Row -->
+    <div class="row">
+  
+      <div class="col-md-5">
+        <img class="img-fluid" width="550px" height="500" src="/images/{{product.image}}" alt="{{product.name}}">
+      </div>
+  
+      <div class="col-md-7">
+        <h3 class="">{{product.name}}</h3>
+         <p class="fw-semibold">{{product.desc}}</p> 
+        <h3 class="my-3">Project Details</h3>
+        
+      </div>
+
+    
+    </div>
+    <!-- /.row -->
+        <div class="comment">
+            <form action="/products/createCmt" method="POST" id="form-2">
+
+               <div class="form-group">
+                <input type="hidden" name="slug" value="{{product.slug}}">
+                <input type="hidden" name="username" value="{{user.username}}">
+                
+              {{!-- <h1>binh luan</h1>
+              <textarea class="form-group" name="cmt" id="cmt" rows="4" placeholder="binh luan tai day"></textarea>
+              <span class="form-message"></span> --}}
+      <div class="container mt-5">
+            <div  class="d-flex justify-content-center row">
+        <div class="col-md-12">
+            <div class="d-flex flex-column comment-section">
+                
+                <div class="bg-white">
+                    <div class="d-flex flex-row fs-12">
+                        <div class="like p-2 cursor"><i class="fa fa-thumbs-o-up"></i><span class="ml-1">Like</span></div>
+                        <div class="like p-2 cursor"><i class="fa fa-commenting-o"></i><span class="ml-1">Comment</span></div>
+                        <div class="like p-2 cursor"><i class="fa fa-share"></i><span class="ml-1">Share</span></div>
+                    </div>
+                </div>
+                <div class="bg-light p-2">
+                   <div class="d-flex flex-row align-items-start">
+
+                          <textarea class="form-group form-control ml-1 shadow-none textarea" name="cmt" id="cmt" rows="4" placeholder="bình luận tại đây"></textarea>
+                   </div>
+                            <span class="form-message"></span>
+                    <div class="mt-2 text-right">
+                      <button class="btn btn-primary btn-sm shadow-none">Post comment</button>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+              {{!-- <button class="btn btn-primary " > Gửi bình luận</button> --}}
+            </form>
+         </div>
+
+          {{#each comment}}
+          <div class="bg-white p-2">
+                    <div class="d-flex flex-row user-info">
+                        <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold"> {{this.username}}</span><span class="date text-black-50">4/9/2023</span></div>
+                    </div>
+                    <div class="mt-2">
+                        <p class="comment-text">{{this.cmt}}</p>
+                    </div>
+                </div>
+                    <hr>
+      {{!-- <div class="card mt-2">
+        <div class="card">
+          <div class="card-header bg-dark text-white">
+            {{this.username}}
+          </div>
+          <div class="card-body">
+              <h5 class="card-title">{{this.cmt}}</h5>
+          </div>
+        </div>
+      </div> --}}
+    {{/each}}
+    <!-- Related Projects Row -->
+    <h3 class="mt-5">Sách liên quan</h3>
+  
+    <div class="row">
+      
+      <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+        <img class="img-fluid" width="225px" height="" src="/images/{{product.image}}" alt="{{product.name}}">
+            </a>
+      </div>
+  
+  
+    
+      
+    </div>
+    <!-- /.row -->
+  
+  </div>
+  <!-- /.container -->
+        
+            {{!-- <h2>Sach hay</h2>
+            <img class="img-fluid" src="/images/{{product.image}}" alt="{{product.name}}">
+            <h3>{{product.name}}</h3>
+            <p>{{product.desc}}</p> --}}
+
+          
+
+            {{!-- form insert comment --}}
+     
+
+          {{!-- render view comment --}}
+        
+
+       
+
+
+
+
+    </div>
+
+</div>
+
+
+<script>
+
+      document.addEventListener('DOMContentLoaded', function () {
+        // Mong muốn của chúng ta
+      
+        Validator({
+          form: '#form-2',
+          formGroupSelector: '.form-group',
+          errorSelector: '.form-message',
+          rules: [
+            Validator.isRequired('#cmt', 'Comment của bạn không đươc để trống'),
+            
+            
+          ],
+         
+        });
+      });
+
+    </script>

@@ -1,0 +1,109 @@
+<style>
+  img{
+    width: 64px;
+    object-fit: cover;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <a class="navbar-blue" href="#">Admin</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      
+      <li class="nav-item">
+        <a class="nav-link " href="/products/create">Add-products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/me/stored/products">Manage-books</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/me/profile">Manage-users</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="mt-4">
+    <h1>sach cua chung ta</h1>
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ten book</th>
+      <th scope="col">image</th>
+      <th scope="col" >desc</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+
+        {{#each products}}
+    <tr>
+      <th scope="row">{{sum @index 1 }}</th>
+      <td>{{this.name}}</td>
+      <td><img src="/images/{{this.image}}" alt=""></td>
+      <td>{{this.desc}}</td>
+      <td>
+        <a href="/products/{{this._id}}/edit" class="btn btn-link">Sửa</a>|
+        <a href="" class="btn btn-link" data-id="{{this._id}}"  data-toggle="modal" data-target="#delete-product-modal">Xóa</a>
+      </td>
+    </tr>
+    
+        {{/each}}
+    
+  </tbody>
+</table>
+</div>
+
+{{!-- Confirm delete --}}
+
+<div id="delete-product-modal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Xoa Sach</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Ban co chac chan xoa sach nay!!!</p>
+      </div>
+      <div class="modal-footer">
+        <button  type="button" class="btn btn-secondary" data-dismiss="modal">Huy</button>
+        <button id="btn-delete-product" type="button" class="btn btn-danger">Xoa bo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- delete hidden form --}}
+
+    <form method="POST" name="delete-form">
+       
+</form>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+
+  $('#delete-product-modal').on('show.bs.modal', function (event) {
+    var productId;
+    var deleteForm = document.forms['delete-form'];
+    var button = $(event.relatedTarget); 
+     productId = button.data('id');
+   
+
+    var btnDeleteProduct = document.getElementById('btn-delete-product');
+    btnDeleteProduct.onclick = function() {
+        
+        deleteForm.action = '/products/' + productId  + '?_method=DELETE';
+        deleteForm.submit();  
+    } 
+  })
+
+})
+</script>

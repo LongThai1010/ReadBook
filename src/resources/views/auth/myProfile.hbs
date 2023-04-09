@@ -1,0 +1,31 @@
+ <head>
+    <link rel="stylesheet" href="/css/auth.css">
+ </head>
+ 
+ <form action="" method="POST" class="form" id="form-2">
+    <h3 class="heading">Hồ sơ của bạn</h3>
+    {{!-- <p class="desc">Đăng nhập MyBook để đọc những cuốn sách hay ❤️</p> --}}
+
+    <div class="spacer"></div>
+
+    <div class="form-group">
+      <label for="username" class="form-label">Tên Đăng nhập</label>
+      <input id="username" name="username" type="text" value="{{user.username}}" class="form-control form-group">
+      <span class="form-message"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="password" class="form-label">Mật khẩu</label>
+      <input id="password" name="password" type="password" value="{{user.password}}" class="form-control form-group">
+      <span class="form-message"></span>
+    </div>
+
+   <div class="form-group">
+      <label for="email" class="form-label">Email</label>
+      <input id="email" name="email" type="email" value="{{user.email}}" class="form-control form-group">
+      <span class="form-message"></span>
+    </div>
+    
+
+    
+  </form>
