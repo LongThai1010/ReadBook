@@ -27,5 +27,15 @@ class authMiddleware {
       }
     }
   }
+
+  // checkHaveAuth(req, res, next) {
+  //   if (!req.session || !req.session.user) {
+  //     // res.status(404).json({ message: "Bạn Không Đủ Tư Cách!" }); // a không muốn json thì đoạn alert nha
+  //     // return res.redirect('user/')
+  //     return res.send("<script>window.location.href='/auth/login'</script>");
+  //   }
+  //   next();
+  // }
 }
+
 module.exports = new authMiddleware();
