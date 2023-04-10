@@ -65,10 +65,13 @@
           {{#each comment}}
           <div class="bg-white p-2">
                     <div class="d-flex flex-row user-info">
-                        <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold"> {{this.username}}</span><span class="date text-black-50">4/9/2023</span></div>
+                        <div class="d-flex flex-row align-items-center justify-content-start ml-2"><img class="rounded-circle" src="https://vivureviews.com/wp-content/uploads/2022/08/avatar-vo-danh-9.png" width="40"><span class="d-block font-weight-bold ml-2"> {{this.username}}</span></div>
                     </div>
                     <div class="mt-2">
-                        <p class="comment-text">{{this.cmt}}</p>
+                      <span class="date text-black-50">{{this.createdAt}}</span>
+                    </div>
+                    <div class="mt-2">
+                        <p class="comment-text font-weight-normal">{{this.cmt}}</p>
                     </div>
                 </div>
                     <hr>
