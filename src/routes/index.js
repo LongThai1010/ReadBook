@@ -9,7 +9,7 @@ function route(app) {
   app.use("/news", newsRouter);
   app.use("/products", ProductsRouter);
   app.use("/auth", AuthRouter);
-  app.use("/me", MeRouter);
+  app.use("/me", authMiddleware.checkRole, MeRouter);
   app.use("/", SiteRouter);
 }
 
